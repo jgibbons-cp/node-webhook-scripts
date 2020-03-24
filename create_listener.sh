@@ -23,8 +23,11 @@ ssh $USER@$HOST sudo yum -y install git
 #pull repo
 ssh $USER@$HOST git clone $REPO
 
+#configure install of node
+ssh $USER@$HOST "mkdir $NVM_HOME ; curl -O $NVM_INSTALL_URL ; sh $NVM_INSTALL_SCRIPT ; sh $NVM_HOME/$NVM_SETUP_SCRIPT ;"
+
 #install node
-ssh $USER@$HOST "mkdir $NVM_HOME ; curl -O $NVM_INSTALL_URL ; sh $NVM_INSTALL_SCRIPT ; sh $NVM_HOME/$NVM_SETUP_SCRIPT ; nvm install node"
+ssh $USER@$HOST "nvm install node"
 
 #copy sample script
 ssh $USER@$HOST "cp $REPO_NAME/$SCRIPT_NAME ~/"
