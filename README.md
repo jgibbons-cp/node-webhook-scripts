@@ -1,6 +1,6 @@
 ![Logo](https://github.com/aluzed/node-webhook-scripts/raw/master/logo.png "Node Webhook Scripts")
 
-# Node Webhook Scripts
+# Node Webhook Scripts (forked)
 
 ## Purpose
 
@@ -11,26 +11,26 @@ Execute a script on HTTP call to automate server tasks.
 Run : 
 
 ```
-git clone git@github.com:aluzed/node-webhook-scripts.git
+git clone git@github.com:jgibbons-cp/node-webhook-scripts.git
 ```
 
-Create a `hooks.js` and a `config.js` file.
+Create a `hooks.js` and a `config.js` file.  Sample files provided.  
 
-## Create a hook 
+## Create a hook or use the sample
 
 In hooks.js : 
 
 ```js
 module.exports = [
   {
-    path: "/my_beautiful_hook",
-    command: "sh /var/my/scripts/path/script.sh", 
-    cwd: "/var/my/scripts/path",
+    path: "/kill_stress", 
+    command: "sh /home/ec2-user/kill_stress.sh",
+    cwd: "/home/ec2-user/",
     method: "post"
   }
 ]
 ```
-
+  
 By default, if you omit the `method` key, it will send a `GET` request. (uppercase or lowercase...)
 
 You have to declare 4 keys : 
@@ -93,20 +93,31 @@ module.exports = [
 ]
 ```
 
-## Use :
-
-You can test your webhook server with curl or insomnia/postman/whatever...
-
-```
-curl -X POST http://localhost:8080/hello_world [-H 'token: MySecurityT0k3n']
-
--->
-
-DONE : Hellooooooooo WOOOOOOOORLLLLLLD !
-```
-
 ## Callback :
 
 If you prefer use a normal Express callback, you just have to add a "func" key in your hooks.js, with request and result args. (see hooks.sample.js)
 
 ![License](https://i.creativecommons.org/l/by-nc-sa/3.0/fr/88x31.png "CC BY NC SA")
+  
+##Automate creation of a listener
+  
+1) Launch a host (e.g. AWS)  
+2) Add some security group rules
+    * ssh and 8080 from your IP to test  
+    * 8080 for Datadog webhooks 
+      * 34.192.254.186/32  
+      * 34.204.102.208/32  
+      * 52.20.96.17/32  
+3) Create listener:
+    * sh create_listener.sh
+4) ## Use :
+
+You can test your webhook server with curl or insomnia/postman/whatever...
+
+```
+curl -X POST http://IP_OR_HOSTNAME:8080/kill_stress -H 'token: MySecurityT0k3n'
+
+-->
+
+DONE : Hellooooooooo WOOOOOOOORLLLLLLD !
+```      
