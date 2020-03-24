@@ -109,6 +109,7 @@ If you prefer use a normal Express callback, you just have to add a "func" key i
       * 34.204.102.208/32  
       * 52.20.96.17/32  
 3) Create listener:
+    * configure variables in create_listener.sh (e.g. HOST)
     * sh create_listener.sh
 4) ## Use :
 
