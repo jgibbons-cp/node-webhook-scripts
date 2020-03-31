@@ -1,11 +1,5 @@
 #!/bin/bash
 
-#example ~/Downloads/<file_name>.pem
-KEY_LOCATION=<path_to_key>
-#example ec2-user
-USER=<user>
-#example hostname or IP
-HOST=<hostname_or_IP>
 REPO=https://github.com/jgibbons-cp/node-webhook-scripts.git
 REPO_NAME=node-webhook-scripts
 NVM_HOME=/home/ec2-user/.nvm
@@ -33,4 +27,4 @@ ssh $USER@$HOST "nvm install node"
 ssh $USER@$HOST "cp $REPO_NAME/$SCRIPT_NAME ~/"
 
 #start listener
-ssh $USER@$HOST "cd $REPO_NAME ; npm install express ; nohup node index.js &"
+ssh -f $USER@$HOST "cd $REPO_NAME ; npm install express ; nohup node index.js &>/dev/null"

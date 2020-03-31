@@ -99,7 +99,7 @@ If you prefer use a normal Express callback, you just have to add a "func" key i
 
 ![License](https://i.creativecommons.org/l/by-nc-sa/3.0/fr/88x31.png "CC BY NC SA")
   
-##Automate creation of a listener
+##Automate creation of a listener, a remediation script, a stress to the CPU, install of Datadog agent
   
 1) Launch a host (e.g. AWS)  
 2) Add some security group rules
@@ -109,9 +109,9 @@ If you prefer use a normal Express callback, you just have to add a "func" key i
       * 34.204.102.208/32  
       * 52.20.96.17/32  
 3) Create listener:
-    * configure variables in create_listener.sh (e.g. HOST)
-    * sh create_listener.sh
-4) ## Use :
+    * configure variables in .env_vars 
+    * load environment variables: sh .env_vars.sh  
+    * kick-off process: sh install.sh  
 
 You can test your webhook server with curl or insomnia/postman/whatever...
 
