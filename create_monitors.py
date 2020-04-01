@@ -8,8 +8,12 @@ options = {
 
 initialize(**options)
 
+#file to store instane-id
+instance_id_store = os.environ["INSTANCE_ID_STORE"]
+mode = "r"
+
 #get instance-id for host
-with open('instance-id', 'r') as file:
+with open(instance_id_store, mode) as file:
     instance_id = file.read().replace('\n', '')
 
 #create threshold monitor

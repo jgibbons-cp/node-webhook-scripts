@@ -2,11 +2,10 @@
 
 REPO=https://github.com/jgibbons-cp/node-webhook-scripts.git
 REPO_NAME=node-webhook-scripts
-NVM_HOME=/home/ec2-user/.nvm
+NVM_HOME=/home/$USER/.nvm
 NVM_INSTALL_URL=https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh
 NVM_INSTALL_SCRIPT=install.sh
 NVM_SETUP_SCRIPT=nvm.sh
-SCRIPT_NAME=kill_stress.sh
 
 #add ssh key
 ssh-add $KEY_LOCATION
