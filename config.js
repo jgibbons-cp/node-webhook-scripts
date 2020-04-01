@@ -1,4 +1,4 @@
 module.exports = {
-  port: 8080,
+  port: $PORT,
   token: 'MySecurityT0k3n'
 }
