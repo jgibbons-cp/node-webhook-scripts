@@ -22,4 +22,6 @@ for line in reversed(lines):
 #close file and delete file
 file.close()
 os.remove(monitor_ids_file)
-os.remove("istance-id")
+
+instance_id_store = os.environ["INSTANCE_ID_STORE"]
+os.remove(instance_id_store)
