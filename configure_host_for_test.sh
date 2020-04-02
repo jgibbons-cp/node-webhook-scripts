@@ -20,7 +20,7 @@ ssh $USER@$HOST curl -O http://169.254.169.254/latest/meta-data/instance-id
 scp $USER@$HOST:/home/$USER/$INSTANCE_ID_STORE .
 
 #create webhook
-curl -v -X POST \
+curl -v -X PUT \
 -H "Content-type: application/json" \
 -H "DD-API-KEY: $DD_API_KEY" \
 -H "DD-APPLICATION-KEY: $DD_APP_KEY" \
