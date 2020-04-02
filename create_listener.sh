@@ -25,5 +25,8 @@ ssh $USER@$HOST "nvm install node"
 #copy sample script
 ssh $USER@$HOST "cp $REPO_NAME/$SCRIPT_NAME ~/"
 
+#configure listener configs
+ssh $USER@$HOST "sed -i 's/<endpoint>/$ENDPOINT/g' $REPO/hooks.js ; sed -i 's/<user>/$USER/g' $REPO/hooks.js ; sed -i 's/<script_name>/$SCRIPT_NAME/g' $REPO/hooks.js ; sed -i 's/<port>/$PORT/g' $REPO/config.js ; sed -i 's/<token>/$TOKEN/g' $REPO/config.js"
+
 #start listener
 ssh -f $USER@$HOST "cd $REPO_NAME ; npm install express ; nohup node index.js &>/dev/null"

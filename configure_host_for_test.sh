@@ -16,7 +16,7 @@ ssh $USER@$HOST "sudo mv /tmp/datadog.yaml /etc/datadog-agent/datadog.yaml ; sud
 ssh -f $USER@$HOST "nohup stress --cpu 3 &>/dev/null"
 
 #get instance ID
-ssh $USER@$HOST curl -O http://169.254.169.254/latest/meta-data/$INSTANCE_ID_STORE
+ssh $USER@$HOST curl -O http://169.254.169.254/latest/meta-data/instance-id
 scp $USER@$HOST:/home/$USER/$INSTANCE_ID_STORE .
 
 #create webhook

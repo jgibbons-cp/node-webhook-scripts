@@ -2,16 +2,17 @@
 
 ##Automate creation of a listener and auto-remediation of a CPU hogged process using Datadog 
   
-1) Launch a host (e.g. AWS)  
+1) Launch a host (e.g. AWS)  This can be used if you can't use the AWS EventBridge for example.
 2) Add some security group rules
     * ssh and 8080 from your IP to test  
     * 8080 for Datadog webhooks 
       * 34.192.254.186/32  
       * 34.204.102.208/32  
       * 52.20.96.17/32  
-3) Create a listener, stress the CPU, create three Datadog monitors and a webhook to remediate:
+3) Create a listener, stress the CPU, create three Datadog monitors and a webhook to remediate killing the process.
+What you will see is the CPU spike, the webhook will fire when all three monitors alert and the CPU will recover.
     * configure variables in .env_vars 
-    * load environment variables: sh .env_vars.sh  
+    * load environment variables: source .env_vars.sh  
     * kick-off process: sh install.sh  
 
 You can test your webhook server with curl, insomnia/postman/Datadog alert...
