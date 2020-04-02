@@ -2,6 +2,8 @@
 
 ##Automate creation of a listener and auto-remediation of a CPU hogged process using Datadog 
   
+NOTE: demo is listener_demo.mov  
+
 1) Launch a host (e.g. AWS)  This can be used if you can't use the AWS EventBridge for example.
 2) Add some security group rules
     * ssh and 8080 from your IP to test  
