@@ -25,7 +25,7 @@ curl -X POST http://IP_OR_HOSTNAME:8080/kill_stress -H 'token: MySecurityT0k3n'
 -->
 ```      
 
-4) Clean up (other than the webhook which can't be removed via the API, but the next call will fail if it is there)- python remove_monitors.py
+4) Clean up (other than the webhook which can't be removed via the API, but the next call will fail if it is there or update it)- python remove_monitors.py
 
 Notes: this has been tested with OSX to launch and Amazon Linux as the host.  It could use some more defensive programming, 
 and will do if need or time warrants.  If you run into issues please submit an issue or PR. 
